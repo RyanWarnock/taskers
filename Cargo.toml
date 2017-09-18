@@ -1,0 +1,6 @@
+[package]
+name = "taskers"
+version = "0.1.0"
+authors = ["LeBronse <warnock881@gmail.com>"]
+
+[dependencies]
