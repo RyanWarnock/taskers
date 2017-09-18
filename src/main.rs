@@ -6,9 +6,3 @@ fn main() {
     io::stdin().read_line(&mut command)
         .expect("Could not read line");
 }
-
-
-enum Command {
-    Add,
-    Remove,
-}
