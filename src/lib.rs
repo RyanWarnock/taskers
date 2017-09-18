@@ -1,6 +1,9 @@
 impl Command {
-    pub fn new(command: String) -> Result<Command, &'static str> {
+    pub fn new(command: &str) -> Result<Command, &'static str> {
         let command = command.trim();
+        if command.len() < 3 {
+            return Err("Command not long enough")    
+        }
         let (action, task) = command.split_at(2);
         let action = match action {
             "-a"    => Action::Add,
