@@ -12,7 +12,7 @@ impl Command {
         };
         Ok(Command {
             action: action,
-            task: String::from(task),
+            task: String::from(task.trim()),
         })
     }
 }
