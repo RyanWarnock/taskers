@@ -63,8 +63,11 @@ impl TaskList {
         let mut f = File::create("task.list")?;
         f.set_len(0)?;
         for task in &self.task_list {
-            write!(f, "{}\n", task.command)
-                .expect("Couldn't write to file");
+            if task.completed == true {
+                writeln!(f, "~{}", task.command)?;
+            } else {
+                writeln!(f, "{}", task.command)?;    
+            }
         }
         Ok(())
     }
