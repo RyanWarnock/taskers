@@ -4,6 +4,8 @@ use taskers::TaskList;
 use std::io::prelude::*;
 use std::process;
 
+// Currently handles all errors and just calls process::exit(1)
+// whenever an error occurs.
 fn main() {
     println!("Taskers: The tacky task tracker for tiresome tasks");
 
