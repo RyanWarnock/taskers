@@ -1,0 +1,25 @@
+# Taskers
+### The Tacky Task Manager For Tiresome Tasks
+
+This is just a project built while learning the ropes in rust.
+Please, if you notice something that can be improved make an issue :)
+
+#### What does it do?
+Outputs the contents of a task.list file to a terminal.
+You can create, remove and mark tasks as complete.
+
+Everything is stored in the tasks.list file. That file name is currently hardcoded in.
+Lines (tasks) that begin with a '~' are treated as complete tasks.
+All other starts to a line are assumed to be incompete tasks.
+
+#### How to use it
+1. When started, the program will attempt to open the task.list file in it's directory. If it fails it will attempt to create it.
+1. Once the task.list file is loaded the file contents will be parsed into a `TaskList` struct and printed out to screen if there is any.
+1. A menu will appear listing the current options
+
+It's pretty simple
+
+#### Things still to do
+* Actually handle errors properly.
+* Record when a task was created, record a date they should be finished by.
+* Sub tasks.
