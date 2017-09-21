@@ -86,8 +86,16 @@ impl TaskList {
         println!("---------------------------------");
     }
 
-    pub fn add_task(&mut self, task: String) {
-        let new_task = Task::new(task);
+    fn add_task(&mut self, task: String) {
+        let new_task = match task.starts_with("~") {
+            true    => {
+                let task = task.clone().split_off(1);
+                let mut new_completed_task = Task::new(task);
+                new_completed_task.completed = true;
+                new_completed_task
+            }, 
+            false   => Task::new(task),
+        };
         self.task_list.push(new_task);
     }
 
