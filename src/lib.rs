@@ -1,6 +1,7 @@
 use std::io::prelude::*;
 use std::io;
 use std::fs::File;
+use std::fs::OpenOptions;
 use std::error::Error;
 
 pub fn run(task_list: &mut TaskList) -> Result<(), Box<Error>> {
@@ -41,16 +42,11 @@ impl TaskList {
     }
 
     pub fn load_from_file(&mut self) -> Result<(), Box<Error>> {
-        let f = File::open("task.list");
-        let mut f = match f {
-            Ok(file)   => file,
-            Err(err)  => {
-                println!("Couldn't open file 'task.list': {}", err);
-                println!("Trying to create it");
-                File::create("task.list")?;
-                File::open("task.list")?
-            },
-        };
+        let mut f = OpenOptions::new()
+            .read(true)
+            .write(true)
+            .create(true)
+            .open("task.list")?;
         let mut tasks = String::new();
         f.read_to_string(&mut tasks)?;
         for line in tasks.lines() {
