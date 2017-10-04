@@ -1,5 +1,6 @@
 use std::io::prelude::*;
 use std::io;
+use std::fmt;
 use std::fs::File;
 use std::fs::OpenOptions;
 use std::error::Error;
@@ -69,11 +70,7 @@ impl TaskList {
         let mut counter = 0;
         println!("---------------------------------");
         for task in &self.task_list {
-            if !task.completed {
-                println!("{}. [ ] - {}", counter, task.command);
-            } else {
-                println!("{}. [x] - {}", counter, task.command);
-            }
+            println!("{}. {}", counter, task);
             counter += 1;
         }
         println!("---------------------------------");
@@ -157,6 +154,16 @@ impl Task {
         Task {
             completed: false,
             command: String::from(command.trim()),
+        }
+    }
+}
+
+impl fmt::Display for Task {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        if !self.completed {
+            write!(f, "[ ] - {}", self.command)
+        } else {
+            write!(f, "[x] - {}", self.command)
         }
     }
 }
