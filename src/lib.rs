@@ -9,11 +9,11 @@ pub fn run(task_list: &mut TaskList) -> Result<(), Box<Error>> {
     task_list.print_tasks();
     loop {
         match select_mode()? {
-            Mode::Add => task_list.add_task_prompt()?,
-            Mode::Remove => task_list.remove_task()?,
-            Mode::Complete => task_list.complete_task()?,
-            Mode::Quit => break,
-            Mode::Invalid => println!("Invalid mode selection"),
+            Mode::Add       => task_list.add_task_prompt()?,
+            Mode::Remove    => task_list.remove_task()?,
+            Mode::Complete  => task_list.complete_task()?,
+            Mode::Quit      => break,
+            Mode::Invalid   => println!("Invalid mode selection"),
         };
         task_list.save_to_file()?;
         task_list.print_tasks();
@@ -115,8 +115,8 @@ impl TaskList {
                 io::stdin().read_line(&mut task_num)?;
                 let task_num: usize = match task_num.trim().parse() {
                     Ok(num) if num < task_list_len => num,
-                    Ok(_) => continue,
-                    Err(_) => break,
+                    Ok(_)   => continue,
+                    Err(_)  => break,
                 };
                 self.task_list.remove(task_num);
             }
@@ -137,8 +137,8 @@ impl TaskList {
                 io::stdin().read_line(&mut task_num)?;
                 let task_num: usize = match task_num.trim().parse() {
                     Ok(num) if num < task_list_len => num,
-                    Ok(_) => continue,
-                    Err(_) => break,
+                    Ok(_)   => continue,
+                    Err(_)  => break,
                 };
                 self.task_list[task_num].completed = true;
             }
