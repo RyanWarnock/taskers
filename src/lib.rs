@@ -67,11 +67,9 @@ impl TaskList {
     }
 
     pub fn print_tasks(&self) {
-        let mut counter = 0;
         println!("---------------------------------");
-        for task in &self.task_list {
-            println!("{}. {}", counter, task);
-            counter += 1;
+        for (counter, task) in self.task_list.iter().enumerate() {
+            println!("{}. {}", counter, &task);
         }
         println!("---------------------------------");
     }
