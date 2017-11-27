@@ -59,14 +59,12 @@ impl TaskList {
     }
 
     pub fn save_to_file(&self) -> Result<(), Box<Error>> {
-        let mut f = File::create("task.list")?;
-        f.set_len(0)?;
+        let mut wtr = csv::Writer::from_path("task.list")?;
+        wtr.write_record(&["Task", "Completed"])?;
+        wtr.flush()?;
         for task in &self.task_list {
-            if task.completed {
-                writeln!(f, "~{}", task.command)?;
-            } else {
-                writeln!(f, "{}", task.command)?;
-            }
+            wtr.serialize(&task)?;    
+            wtr.flush()?;
         }
         Ok(())
     }
