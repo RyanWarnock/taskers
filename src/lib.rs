@@ -50,10 +50,10 @@ impl TaskList {
             .write(true)
             .create(true)
             .open("task.list")?;
-        let mut tasks = String::new();
-        f.read_to_string(&mut tasks)?;
-        for line in tasks.lines() {
-            self.add_task(String::from(line));
+        let mut rdr = csv::Reader::from_reader(f);
+        for result in rdr.deserialize() {
+            let mut task: Task = result?;    
+            self.task_list.push(task);            
         }
         Ok(())
     }
