@@ -46,7 +46,7 @@ impl TaskList {
     }
 
     pub fn load_from_file(&mut self) -> Result<(), Box<Error>> {
-        let mut f = OpenOptions::new().read(true)
+        let f = OpenOptions::new().read(true)
             .write(true)
             .create(true)
             .open("task.list")?;
