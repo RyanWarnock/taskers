@@ -52,7 +52,7 @@ impl TaskList {
             .open("task.list")?;
         let mut rdr = csv::Reader::from_reader(f);
         for result in rdr.deserialize() {
-            let mut task: Task = result?;    
+            let task: Task = result?;    
             self.task_list.push(task);            
         }
         Ok(())
