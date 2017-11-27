@@ -60,7 +60,6 @@ impl TaskList {
 
     pub fn save_to_file(&self) -> Result<(), Box<Error>> {
         let mut wtr = csv::Writer::from_path("task.list")?;
-        wtr.write_record(&["Task", "Completed"])?;
         wtr.flush()?;
         for task in &self.task_list {
             wtr.serialize(&task)?;    
