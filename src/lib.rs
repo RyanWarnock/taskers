@@ -3,10 +3,8 @@ extern crate serde;
 #[macro_use]
 extern crate serde_derive;
 
-use std::io::prelude::*;
 use std::io;
 use std::fmt;
-use std::fs::File;
 use std::fs::OpenOptions;
 use std::error::Error;
 
