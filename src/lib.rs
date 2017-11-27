@@ -50,8 +50,8 @@ impl TaskList {
             .open("task.list")?;
         let mut rdr = csv::Reader::from_reader(f);
         for result in rdr.deserialize() {
-            let task: Task = result?;    
-            self.task_list.push(task);            
+            let task: Task = result?;
+            self.task_list.push(task);
         }
         Ok(())
     }
@@ -60,7 +60,7 @@ impl TaskList {
         let mut wtr = csv::Writer::from_path("task.list")?;
         wtr.flush()?;
         for task in &self.task_list {
-            wtr.serialize(&task)?;    
+            wtr.serialize(&task)?;
             wtr.flush()?;
         }
         Ok(())
