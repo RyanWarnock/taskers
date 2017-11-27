@@ -1,5 +1,5 @@
 # Taskers
-### The Tacky Task Manager For Tiresome Tasks
+### The Tacky Task Tracker For Tiresome Tasks
 
 This is just a project built while learning the ropes in rust.
 Please, if you notice something that can be improved make an issue :)
