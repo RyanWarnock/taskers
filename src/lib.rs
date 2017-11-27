@@ -1,3 +1,8 @@
+extern crate csv;
+extern crate serde;
+#[macro_use]
+extern crate serde_derive;
+
 use std::io::prelude::*;
 use std::io;
 use std::fmt;
@@ -166,6 +171,8 @@ impl fmt::Display for Task {
     }
 }
 
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "PascalCase")]
 pub struct Task {
     pub completed: bool,
     pub command: String,

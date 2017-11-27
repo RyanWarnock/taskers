@@ -16,7 +16,7 @@ fn main() {
         writeln!(&mut stderr, "File handling error: {}", err)
             .expect("Couldn't write to stderr");
         process::exit(1);
-    } 
+    }
 
     if let Err(err) = taskers::run(&mut task_list) {
         writeln!(&mut stderr, "Application error: {}", err)
