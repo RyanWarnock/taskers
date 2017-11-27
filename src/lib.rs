@@ -171,7 +171,7 @@ impl fmt::Display for Task {
     }
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "PascalCase")]
 pub struct Task {
     pub completed: bool,
