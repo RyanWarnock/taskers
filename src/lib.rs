@@ -78,15 +78,7 @@ impl TaskList {
     }
 
     fn add_task(&mut self, task: String) {
-        let new_task = if task.starts_with('~') {
-            let task = task.clone().split_off(1);
-            let mut new_completed_task = Task::new(task);
-            new_completed_task.completed = true;
-            new_completed_task
-        } else {
-            Task::new(task)
-        };
-        self.task_list.push(new_task);
+        self.task_list.push(Task::new(task));
     }
 
     pub fn add_task_prompt(&mut self) -> Result<(), Box<Error>> {
