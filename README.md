@@ -10,9 +10,7 @@ Please, if you notice something that can be improved make an issue :)
 Outputs the contents of a task.list file to a terminal.
 You can create, remove and mark tasks as complete.
 
-Everything is stored in the tasks.list file. That file name is currently hardcoded in.
-Lines (tasks) that begin with a '~' are treated as complete tasks.
-All other starts to a line are assumed to be incompete tasks.
+Everything is stored in the "tasks.list" csv file. That file name is currently hardcoded in.
 
 #### How to use it
 1. When started, the program will attempt to open the task.list file in it's directory. If it fails it will attempt to create it.
