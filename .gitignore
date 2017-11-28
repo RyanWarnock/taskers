@@ -2,4 +2,5 @@
 **/*.rs.bk
 ./task*
 *.s
+*.vi
 task.list
