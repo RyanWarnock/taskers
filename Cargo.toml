@@ -7,3 +7,4 @@ authors = ["LeBronse <warnock881@gmail.com>"]
 csv = "1.0.0-beta.5"
 serde = "1.0"
 serde_derive = "1.0"
+time = "0.1"
