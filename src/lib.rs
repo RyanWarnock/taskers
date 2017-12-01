@@ -173,6 +173,9 @@ impl fmt::Display for Task {
 pub struct Task {
     pub completed: bool,
     pub command: String,
+    pub day: i32,
+    pub month: i32,
+    pub year: i32,
 }
 
 pub enum Mode {
