@@ -68,8 +68,13 @@ impl TaskList {
 
     pub fn print_tasks(&self) {
         println!("---------------------------------");
-        for (counter, task) in self.task_list.iter().enumerate() {
-            println!("{}. {}", counter, &task);
+        let task_list_len = self.task_list.len();
+        if task_list_len > 0 {
+            for (counter, task) in self.task_list.iter().enumerate() {
+                println!("{}. {}", counter, &task);
+            }
+        } else {
+            println!("There are no tasks");
         }
         println!("---------------------------------");
     }
