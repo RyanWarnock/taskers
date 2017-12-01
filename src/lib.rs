@@ -153,7 +153,6 @@ impl Task {
             command: String::from(command.trim()),
             day: cur_time.tm_mday,
             month: cur_time.tm_mon,
-            year: cur_time.tm_year,
         }
     }
 }
@@ -175,7 +174,6 @@ pub struct Task {
     pub command: String,
     pub day: i32,
     pub month: i32,
-    pub year: i32,
 }
 
 pub enum Mode {
