@@ -160,9 +160,9 @@ impl Task {
 impl fmt::Display for Task {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         if !self.completed {
-            write!(f, "[ ] {}/{}/{} - {}", self.day, self.month, self.command)
+            write!(f, "[ ] {}/{} - {}", self.day, self.month, self.command)
         } else {
-            write!(f, "[x] {}/{}/{} - {}", self.day, self.month, self.command)
+            write!(f, "[x] {}/{} - {}", self.day, self.month, self.command)
         }
     }
 }
