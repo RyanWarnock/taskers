@@ -147,9 +147,13 @@ impl TaskList {
 
 impl Task {
     pub fn new(command: String) -> Task {
+        let cur_time = time::now();
         Task {
             completed: false,
             command: String::from(command.trim()),
+            day: cur_time.tm_mday,
+            month: cur_time.tm_mon,
+            year: cur_time.tm_year,
         }
     }
 }
