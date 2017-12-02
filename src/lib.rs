@@ -12,6 +12,8 @@ use std::error::Error;
 use std::env;
 
 pub fn run(task_list: &mut TaskList) -> Result<(), Box<Error>> {
+    task_list.task_list_location = TaskList::get_task_file_location()?;
+    task_list.load_from_file()?;
     task_list.print_tasks();
     loop {
         match select_mode()? {
