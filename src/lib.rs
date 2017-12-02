@@ -45,7 +45,22 @@ pub fn select_mode() -> Result<Mode, Box<Error>> {
 impl TaskList {
     pub fn new() -> TaskList {
         let task_list: Vec<Task> = Vec::new();
-        TaskList { task_list }
+        let task_list_location = String::from("task.list"); //default value
+        TaskList { task_list, task_list_location }
+    }
+
+    pub fn get_task_file_location() -> Result<String, Box<Error>> {
+        if let Some(path) = env::home_dir() {
+            let path = format!("{}/taskers", path.display());
+            DirBuilder::new().recursive(true).create(&path)?;
+            let cur_dir = env::current_dir()?;
+            let cur_dir = format!("{}.list", cur_dir.display());
+            let task_file = cur_dir.replace("/", ":");
+            Ok(format!("{}/{}", path, task_file))
+        } else {
+            //Defaults to creating a task.list file if home_dir() not working.
+            Ok(String::from("task.list"))
+        }
     }
 
     pub fn load_from_file(&mut self) -> Result<(), Box<Error>> {
