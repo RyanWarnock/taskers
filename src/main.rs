@@ -12,12 +12,6 @@ fn main() {
     let mut task_list = TaskList::new();
     let mut stderr = std::io::stderr();
 
-    if let Err(err) = task_list.load_from_file() {
-        writeln!(&mut stderr, "File handling error: {}", err)
-            .expect("Couldn't write to stderr");
-        process::exit(1);
-    }
-
     if let Err(err) = taskers::run(&mut task_list) {
         writeln!(&mut stderr, "Application error: {}", err)
             .expect("Couldn't write to stderr");
