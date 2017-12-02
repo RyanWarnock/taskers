@@ -51,7 +51,7 @@ impl TaskList {
 
     pub fn get_task_file_location() -> Result<String, Box<Error>> {
         if let Some(path) = env::home_dir() {
-            let path = format!("{}/taskers", path.display());
+            let path = format!("{}/.taskers", path.display());
             DirBuilder::new().recursive(true).create(&path)?;
             let cur_dir = env::current_dir()?;
             let cur_dir = format!("{}.list", cur_dir.display());
