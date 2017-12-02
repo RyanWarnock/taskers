@@ -20,6 +20,13 @@ Everything is stored in the "tasks.list" csv file. That file name is currently h
 It's pretty simple
 
 #### Things still to do
-* Actually handle errors properly.
-* Record when a task was created, record a date they should be finished by.
-* Sub tasks.
+* Actually handle errors properly
+* Sub tasks
+* Store tasks in YAML or JSON file
+* Vim-like interface
+* Alarms/Reminders
+* Context aware (use specific task.list for different files/folders)
+
+#### Things completed
+* Record when a task was created
+* Store tasks in a csv file
