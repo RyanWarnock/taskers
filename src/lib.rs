@@ -205,4 +205,5 @@ pub enum Mode {
 
 pub struct TaskList {
     pub task_list: Vec<Task>,
+    pub task_list_location: String,
 }
