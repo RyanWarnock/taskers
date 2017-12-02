@@ -67,7 +67,7 @@ impl TaskList {
         let f = OpenOptions::new().read(true)
             .write(true)
             .create(true)
-            .open("task.list")?;
+            .open(&self.task_list_location)?;
         let mut rdr = csv::Reader::from_reader(f);
         for result in rdr.deserialize() {
             let task: Task = result?;
@@ -77,7 +77,7 @@ impl TaskList {
     }
 
     pub fn save_to_file(&self) -> Result<(), Box<Error>> {
-        let mut wtr = csv::Writer::from_path("task.list")?;
+        let mut wtr = csv::Writer::from_path(&self.task_list_location)?;
         wtr.flush()?;
         for task in &self.task_list {
             wtr.serialize(&task)?;
