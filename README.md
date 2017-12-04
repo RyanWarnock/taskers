@@ -27,6 +27,7 @@ It's pretty simple
 * Store tasks in YAML or JSON file
 * Vim-like interface
 * Alarms/Reminders
+* Tests
 
 #### Things completed
 * Record when a task was created
