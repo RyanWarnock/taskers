@@ -32,3 +32,13 @@ impl fmt::Display for Task {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn task_test() {
+        assert_eq!(1, 1);
+    }
+}

@@ -132,3 +132,13 @@ impl TaskList {
         Ok(())
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn tasklist_test() {
+        assert_eq!(1, 1);
+    }
+}

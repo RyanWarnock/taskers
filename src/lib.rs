@@ -50,3 +50,13 @@ pub enum Mode {
     Quit,
     Invalid,
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn lib_test() {
+        assert_eq!(1, 1);
+    }
+}
