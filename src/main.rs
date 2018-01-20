@@ -1,6 +1,6 @@
 extern crate taskers;
 
-use taskers::TaskList;
+use taskers::tasklist::TaskList;
 use std::io::prelude::*;
 use std::process;
 
