@@ -4,6 +4,7 @@ use std::fs::OpenOptions;
 use std::fs::DirBuilder;
 use std::env;
 use csv;
+
 use task::Task;
 
 pub struct TaskList {
@@ -14,7 +15,7 @@ pub struct TaskList {
 impl TaskList {
     pub fn new() -> TaskList {
         let task_list: Vec<Task> = Vec::new();
-        let task_list_location = String::from("task.list"); //default value
+        let task_list_location = String::from("task.list"); //default location
         TaskList { task_list, task_list_location }
     }
 
@@ -27,7 +28,7 @@ impl TaskList {
             let task_file = cur_dir.replace("/", ":");
             Ok(format!("{}/{}", path, task_file))
         } else {
-            //Defaults to creating a task.list file if home_dir() not working.
+            //Defaults to creating a task.list file in cwd if home_dir() not working.
             Ok(String::from("task.list"))
         }
     }
